@@ -15,3 +15,7 @@
 ## Step 4: Build Database
 - cd into the folder with manage.py
 - `python manage.py migrate`
+
+## Steo 5: creat super user
+- cd into the folder with manage.py
+- `python manage.py createsuperuser`
