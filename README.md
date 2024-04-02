@@ -11,3 +11,7 @@
 ## Step 3: Run web server
 - cd into the project folder where manage.py is located
 - run `python manage.py runserver`
+
+## Step 4: Build Database
+- cd into the folder with manage.py
+- `python manage.py migrate`
