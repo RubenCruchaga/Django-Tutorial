@@ -28,3 +28,11 @@
 ## Step 7: Add Templates Folder
 - `BASE_DIR = Path(__file__).resolve().parent.parent`
 - Add template folder inside app folder.
+
+## View Function
+`def base(request):
+    context={
+
+
+    }
+    return(request, 'base.html', context)`
