@@ -39,7 +39,7 @@ def base(request):
     return(request, 'base.html', context)
 ```
 ## Step 8: Add App's Urls.py to project Urls.py
-```
+```python
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('tutorialapp.urls'))
@@ -47,7 +47,7 @@ urlpatterns = [
 ```
 
 ## Step 9: Add App's Urls.py to App's floder
-```
+```python
 from django.urls import path, imclude
 from . import views
 
