@@ -30,7 +30,7 @@
 - Add template folder inside app folder.
 
 ## View Function
-``` pythom
+```python
 def base(request):
     context={
 
