@@ -19,3 +19,8 @@
 ## Steo 5: creat super user
 - cd into the folder with manage.py
 - `python manage.py createsuperuser`
+
+## Step 6: Add App to Aetting, Installed App's Dicictionary
+- `INSTALLED_APPS =`
+- `...`
+- `[Name of app],`
