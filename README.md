@@ -24,3 +24,7 @@
 - `INSTALLED_APPS =`
 - `...`
 - `[Name of app],`
+
+## Step 7: Add Templates Folder
+- `BASE_DIR = Path(__file__).resolve().parent.parent`
+- Add template folder inside app folder.
