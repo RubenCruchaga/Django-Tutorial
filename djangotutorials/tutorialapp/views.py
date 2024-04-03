@@ -8,4 +8,4 @@ def base(request):
 
 
     }
-    return(request, 'base.html', context)
+    return render(request, 'base.html', context)
