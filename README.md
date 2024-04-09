@@ -57,6 +57,12 @@ urlpatterns = [
 ```
 ## Inheriting Code from a template
 ### base.html
+```
+{% block content %}
+
+{% endblock %}
+```
+### Template
 ```python
 {% load static %}
 
