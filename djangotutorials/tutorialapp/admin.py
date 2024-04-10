@@ -1,3 +1,5 @@
+from atexit import register
 from django.contrib import admin
-
+from tutorialapp.models import *
 # Register your models here.
+admin.site.register(Student)
