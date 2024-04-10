@@ -69,7 +69,7 @@ urlpatterns = [
 {% include 'base.html' %}
 ```
 ## Making Changes to the Database
-### Set 1: Saving Changes
+### Step 1: Saving Changes
 ```
 python manage.py makemigrations
 ```
