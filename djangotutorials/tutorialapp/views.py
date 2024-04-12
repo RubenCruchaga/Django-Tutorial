@@ -23,9 +23,10 @@ def students(request):
         'students':students, # EXPORTS STUDENTS LIST TO THE TEMPLATE(WEBPAGE)
     }
 
-    return render(request,'studnts.html', context)
+    return render(request,'students.html', context)
 def teacher(request):
+    teacher=Teacher.objects.all()
     context={
-        'teacher':Teacher
+        'teacher':teacher
     } 
     return render(request, 'teacher.html', context)
