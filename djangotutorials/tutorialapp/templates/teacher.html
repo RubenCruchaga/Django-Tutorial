@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<!--Everytiong that is unique to the student page should go below-->
+
+<br></br><br></br>
+<center><h1>Teachers </h1></center>
+
+<table class="table table-striped">
+
+    <thead>  
+        <th>Last Name</th> 
+        <th>First Name</th>
+        <th>Type of class</th>
+        <th>Room Number</th>
+
+    </thead>
+
+    {% for i in students %}
+        <tr>
+            <td>{{i.lastname}}</td>
+            <td>{{i.fistname}}</td>
+            <td>{{i.classtype}}</td>
+            <td>{{i.roomnumber}}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+
+     
+{% endblock %}

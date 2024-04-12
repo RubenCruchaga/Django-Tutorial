@@ -16,3 +16,13 @@ class Student(models.Model):
 
     def __str__(self) -> str:
         return ""+ str(self.lastname) + ", " + str(self.firstname) + ": " + str(self.grade)
+
+class Teacher(models.Model):
+    
+    firstname = models.CharField(max_length=200, null=True)
+    lastname = models.CharField(max_length=200, null=True)
+    classtype = models.CharField(max_length=200, null=True)
+    roomnumber = models.CharField(max_length=200, null=True)
+
+    def __str__(self) -> str:
+        return ""+ str(self.lastname) + ", " + str(self.firstname) + " is in room number: " + str(self.roomnumber)

@@ -23,4 +23,9 @@ def students(request):
         'students':students, # EXPORTS STUDENTS LIST TO THE TEMPLATE(WEBPAGE)
     }
 
-    return render(request,'students.html', context)
+    return render(request,'studnts.html', context)
+def teacher(request):
+    context={
+        'teacher':Teacher
+    } 
+    return render(request, 'teacher.html', context)
