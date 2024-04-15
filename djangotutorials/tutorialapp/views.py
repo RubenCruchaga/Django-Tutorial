@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import *
+from .forms import *
 # Create your views here.
 
 
@@ -30,3 +31,27 @@ def teacher(request):
         'teacher':teacher
     } 
     return render(request, 'teacher.html', context)
+
+def studentform(request):
+    contect={}
+    if request.method == 'POST': # this checks for button click
+        form = StudentForm(request.POST)
+        if form.is_valid():
+            context=""
+            for name, value in form.cleaned_data.items():
+                print('{}:({} {}' .format\
+                    (name, type(value), value))
+        #save data locally butnot to the datadbase yet
+        request = form.save (comit=False)
+
+        #save each field local varible
+        firstname = form.cleaned_data['firstname']
+        lastname = form.cleaned_data['lastname']
+        middlename = form.cleaned_data['middlename']
+        grade = form.cleaned_data['grade']
+        request.save()# save to the database
+    else:# if theyt have not pre4ssed abutton, let them view a blank form
+        form = StudentForm()
+    # returns the form and all of its fields in the place of contect variables and list
+    return render(request , "studentform.html", \
+        {'method': request.method, "form":form})
