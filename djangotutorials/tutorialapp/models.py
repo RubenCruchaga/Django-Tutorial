@@ -19,10 +19,10 @@ class Student(models.Model):
 
 class Teacher(models.Model):
     
-    firstname = models.CharField(max_length=200, null=True)
-    lastname = models.CharField(max_length=200, null=True)
-    classtype = models.CharField(max_length=200, null=True)
-    roomnumber = models.CharField(max_length=200, null=True)
+    firstname = models.CharField(max_length=200, null=True, verbose_name="First name ")
+    lastname = models.CharField(max_length=200, null=True, verbose_name="Last name ")
+    classtype = models.CharField(max_length=200, null=True, verbose_name="Class type ")
+    roomnumber = models.CharField(max_length=200, null=True, verbose_name="Room Number ")
 
     def __str__(self) -> str:
         return ""+ str(self.lastname) + ", " + str(self.firstname) + " is in room number: " + str(self.roomnumber)

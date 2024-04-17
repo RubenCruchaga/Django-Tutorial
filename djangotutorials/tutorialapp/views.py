@@ -33,7 +33,7 @@ def teacher(request):
     return render(request, 'teacher.html', context)
 
 def studentform(request):
-    contect={}
+    context={}
     if request.method == 'POST': # this checks for button click
         form = StudentForm(request.POST)
         if form.is_valid():
@@ -42,7 +42,7 @@ def studentform(request):
                 print('{}:({} {}' .format\
                     (name, type(value), value))
         #save data locally butnot to the datadbase yet
-        request = form.save (comit=False)
+        request = form.save (commit=False)
 
         #save each field local varible
         firstname = form.cleaned_data['firstname']
@@ -54,4 +54,28 @@ def studentform(request):
         form = StudentForm()
     # returns the form and all of its fields in the place of contect variables and list
     return render(request , "studentform.html", \
+        {'method': request.method, "form":form})
+
+def teacherform(request):
+    context={}
+    if request.method == 'POST': # this checks for button click
+        form = TeacherForm(request.POST)
+        if form.is_valid():
+            context=""
+            for name, value in form.cleaned_data.items():
+                print('{}:({} {}' .format\
+                    (name, type(value), value))
+        #save data locally butnot to the datadbase yet
+        request = form.save (commit=False)
+
+        #save each field local varible
+        firstname = form.cleaned_data['firstname']
+        lastname = form.cleaned_data['lastname']
+        classtype = form.cleaned_data['classtype']
+        roomnumber = form.cleaned_data['roomnumber']
+        request.save()# save to the database
+    else:# if they have not pre4ssed abutton, let them view a blank form
+        form = TeacherForm()
+    # returns the form and all of its fields in the place of contect variables and list
+    return render(request , "teacherform.html", \
         {'method': request.method, "form":form})
