@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import *
 from .forms import *
+from django.contrib import messages
 # Create your views here.
 
 
@@ -39,22 +40,24 @@ def studentform(request):
         if form.is_valid():
             context=""
             for name, value in form.cleaned_data.items():
-                print('{}:({} {}' .format\
-                    (name, type(value), value))
+                print('{}:({} {}' .format (name, type(value), value))
         #save data locally butnot to the datadbase yet
-        request = form.save (commit=False)
+        requests = form.save (commit=False)
 
         #save each field local varible
         firstname = form.cleaned_data['firstname']
         lastname = form.cleaned_data['lastname']
         middlename = form.cleaned_data['middlename']
         grade = form.cleaned_data['grade']
-        request.save()# save to the database
+        requests.save()# save to the database
+
+        #confirt message
+        messages.success(request, "New Student Added Succesfuly")
+
     else:# if theyt have not pre4ssed abutton, let them view a blank form
         form = StudentForm()
     # returns the form and all of its fields in the place of contect variables and list
-    return render(request , "studentform.html", \
-        {'method': request.method, "form":form})
+    return render(request , "studentform.html", {'method': request.method, "form":form})
 
 def teacherform(request):
     context={}
@@ -66,16 +69,21 @@ def teacherform(request):
                 print('{}:({} {}' .format\
                     (name, type(value), value))
         #save data locally butnot to the datadbase yet
-        request = form.save (commit=False)
+        requests = form.save (commit=False)
 
         #save each field local varible
         firstname = form.cleaned_data['firstname']
         lastname = form.cleaned_data['lastname']
         classtype = form.cleaned_data['classtype']
         roomnumber = form.cleaned_data['roomnumber']
-        request.save()# save to the database
+        requests.save()# save to the database
+
+        #confirmatiom message
+        messages.success(request, "New Teacher Added Succesfuly")
+
     else:# if they have not pre4ssed abutton, let them view a blank form
         form = TeacherForm()
     # returns the form and all of its fields in the place of contect variables and list
     return render(request , "teacherform.html", \
-        {'method': request.method, "form":form})
+        {'method': request.method, "form":form}
+        )
