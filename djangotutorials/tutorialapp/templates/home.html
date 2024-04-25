@@ -1,13 +1,12 @@
-
 {% extends 'base.html' %}
-
+{% load static %}
 
 
 {% block content %}
 <!--Everytiong that is unique to the home page should go below-->
 <main>
   <div class="px-4 py-5 my-5 text-center">
-    <img class="d-block mx-auto mb-4" src="https://ed910ae2d60f0d25bcb8-80550f96b5feb12604f4f720bfefb46d.ssl.cf1.rackcdn.com/5140_CandyCorn_pile-37H-IK5L.jpg" alt="" width="100" height="75">
+    <img class="d-block mx-auto mb-4" src="{% static "/images/CandyCorn.jpg" %}" alt="" width="100" height="75">
     <h1 class="display-5 fw-bold text-body-emphasis">Holloween activites</h1>
     <div class="col-lg-6 mx-auto">
       <p class="lead mb-4">Look around to see what you can do on holloween :).</p>
@@ -24,7 +23,7 @@
         <div class="container-fluid py-5">
           <h1 class="display-5 fw-bold">Carving Pumpkins</h1>
           <button class="btn btn-primary btn-lg" type="button">See Pumpkins</button>
-          <img src ="https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2021_42/1792285/pumpkin-shortage-te-main-211022.jpg">
+          <img src ="{% static "/images/pumkins.jpg" %}">
         </div>
       </div>
     </div>
@@ -60,7 +59,7 @@
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
         <div class="col">
           <div class="card shadow-sm">
-            <img src="https://www.tvguide.com/a/img/catalog/provider/1/2/1-9441966417.jpg">
+            <img src="{% static "/images/nightmarebefor.jpg" %}">
             <div class="card-body">
               <p class="card-text">Movies to watch.</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -74,7 +73,7 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <img src="https://todaysparent.mblycdn.com/tp/resized/2016/09/768x1020/easy-halloween-costumes-corn.jpg">
+            <img src="{% static '/images/kidHug.jpg' %}">
             <div class="card-body">
               <p class="card-text">Actitivtes to do with kids.</p>
               <div class="d-flex justify-content-between align-items-center">
@@ -87,7 +86,7 @@
         </div>
         <div class="col">
           <div class="card shadow-sm">
-            <img src="https://penargylborough.com/wp-content/uploads/2023/09/trick-or-treat.jpg">
+            <img src="{% static '/images/trick-or-treat.jpg' %}">
             <div class="card-body">
               <p class="card-text">Activites for anyone.</p>
               <div class="d-flex justify-content-between align-items-center">
