@@ -5,6 +5,7 @@
 {% block content %}
 <!--Everytiong that is unique to the home page should go below-->
 <main>
+
   <div class="px-4 py-5 my-5 text-center">
     <img class="d-block mx-auto mb-4" src="{% static "/images/CandyCorn.jpg" %}" alt="" width="100" height="75">
     <h1 class="display-5 fw-bold text-body-emphasis">Holloween activites</h1>
@@ -12,7 +13,9 @@
       <p class="lead mb-4">Look around to see what you can do on holloween :).</p>
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
 
-
+      {% if user.is_authenticated %}
+        <h2> Welcom Back, {{user.username}}:O </h2>
+      {% endif %}
       </div>
     </div>
   </div>

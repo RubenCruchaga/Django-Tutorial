@@ -2,6 +2,7 @@ from django.shortcuts import render
 from .models import *
 from .forms import *
 from django.contrib import messages
+from django.contrib.auth.forms import UserCreationForm
 # Create your views here.
 
 
@@ -87,3 +88,18 @@ def teacherform(request):
     return render(request , "teacherform.html", \
         {'method': request.method, "form":form}
         )
+
+def login(request):
+    context={}
+    return render(request, 'login.html', context)
+
+def register(request):
+    form = UserCreationForm()
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+    context={'form': form}
+    return render(request, 'register.html', context)
+
