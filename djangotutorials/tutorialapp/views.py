@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 from .forms import *
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import authenticate, login
 # Create your views here.
 
 
@@ -92,7 +93,7 @@ def teacherform(request):
 def login(request):
     context={}
     return render(request, 'login.html', context)
-
+''''
 def register(request):
     form = UserCreationForm()
     if request.method == 'POST':
@@ -102,4 +103,18 @@ def register(request):
 
     context={'form': form}
     return render(request, 'register.html', context)
+'''
+def register(request):
+    form = RegistrationForm()
+    #if they are already on this page and submit the data
+    if request.method == 'POST':
+        #collec all dta from the form and save to 'form' list
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request,user)
+            return redirect('')
+    return render(request, "registration/registration.html", {'form':form})
+
+
 

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<h1>new user regestation</h1>
+<form method='post'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button class="btn btn-secondary" type="subit"> Register</button>
+
+</form>
+
+
+
+{% endblock %}
