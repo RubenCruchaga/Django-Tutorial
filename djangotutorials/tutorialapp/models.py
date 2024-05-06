@@ -26,3 +26,5 @@ class Teacher(models.Model):
 
     def __str__(self) -> str:
         return ""+ str(self.lastname) + ", " + str(self.firstname) + " is in room number: " + str(self.roomnumber)
+
+

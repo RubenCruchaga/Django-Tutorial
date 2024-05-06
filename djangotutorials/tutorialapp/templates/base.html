@@ -39,17 +39,17 @@
                   <li class="nav-item">
                     <a class="nav-link " href='{% url 'teacher' %}' >Teachers</a>
                   </li>
-
-                  {% if request.user.groups.all.name == 'teacher' %}
-                  <li class="nav-item">
-                    <a class="nav-link " href='{% url 'studentform' %}' >Student Forms</a>
-                  </li>
-                  
-                  <li class="nav-item">
-                    <a class="nav-link " href='{% url 'teacherform' %}' >Teacher Forms</a>
-                  </li>
-                  {% endif %}
-
+                  {% for group in request.user.groups.all %}
+                    {% if group.name == 'teachers' %}
+                    <li class="nav-item">
+                      <a class="nav-link " href='{% url 'studentform' %}' >Student Forms</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                      <a class="nav-link " href='{% url 'teacherform' %}' >Teacher Forms</a>
+                    </li>
+                    {% endif %}
+                  {% endfor %}
                   
                   {% if user.is_authenticated %}
                     <li class="nav-item">
