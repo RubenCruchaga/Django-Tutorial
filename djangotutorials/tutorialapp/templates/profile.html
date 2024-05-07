@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<br></br><br></br><br></br>
+<div class="card" style="width: 98%; margin-left:1%;">
+    <div class="card-body">
+      <h1 class="card-title">Profile</h1>
+      <p class="card-text">
+        <table border="1" width ="100%" class="table table-striped table table-light">
+            <thead>
+                <tr>
+                    <th scope="col"> Last Name </th>
+                    <th scope="col"> First Name </th>
+                    <th scope="col"> Username </th>
+                    <th scope="col"> Email </th>
+                    <th scope="col"> Last Login </th>
+                    <th scope="col"> Groups </th>
+                </tr>
+            </thable>
+            <tbody>
+                <tr>
+                    <td> {{request.user.last_name}} </td>
+                    <td> {{request.user.first_name}} </td>
+                    <td> {{request.user.username}} </td>
+                    <td> {{request.user.email}} </td>
+                    <td> {{request.user.last_login}} </td>
+                    <td>
+                        {% for group in request.user.groups.all%}
+                            {{ group.name}} <br>
+                        {% endfor %}
+                    </td>
+                </tr>
+            </tbody>
+        </p>
+        </table>
+    </div>
+  </div><!--Edn of Profile dtat Card-->
+
+<!--begining of dat querying table-->
+<div class="card" style="width: 98%; margin-left:1%;">
+    <div class="card-body">
+      <h1 class="card-title">My Student data</h1>
+      <p class="card-text">
+        <table border="1" width ="100%" class="table table-striped table table-light">
+            <thead>
+                <tr>
+                    <th> Last Name </th>
+                    <th> First Name </th>
+                    <th> Middle Name </th>
+                    <th> Grade </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for i in mystudentaccounts%}
+                    <tr>
+                        <td> {{i.lastname}} </td>
+                        <td> {{i.firstname}} </td>
+                        <td> {{i.middlename}} </td>
+                        <td> {{i.grade}} </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+
+        </table>
+      </p>
+    
+    </div>
+  </div>
+
+{% endblock %}

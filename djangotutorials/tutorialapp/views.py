@@ -116,5 +116,15 @@ def register(request):
             return redirect('')
     return render(request, "registration/registration.html", {'form':form})
 
+def profile(request):
+    
+    mystudentaccounts = Student.objects.filter(lastname=request.user.last_name, firstname=request.user.first_name)
+    myteacheraccounts = Teacher.objects.filter(lastname=request.user.last_name, firstname=request.user.first_name)
 
+    context={
+        'mystudentaccounts':mystudentaccounts,
+        'myteacheraccounts':myteacheraccounts,
+    }
+
+    return render(request, 'profile.html', context)
 
