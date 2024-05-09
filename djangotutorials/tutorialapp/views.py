@@ -4,6 +4,9 @@ from .forms import *
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import user_passes_test,login_required
+
+
 # Create your views here.
 
 
@@ -35,6 +38,7 @@ def teacher(request):
     } 
     return render(request, 'teacher.html', context)
 
+@ user_passes_test(lambda u: u.groups.filter(name='teacher').exists())
 def studentform(request):
     context={}
     if request.method == 'POST': # this checks for button click
@@ -61,6 +65,7 @@ def studentform(request):
     # returns the form and all of its fields in the place of contect variables and list
     return render(request , "studentform.html", {'method': request.method, "form":form})
 
+@ user_passes_test(lambda u: u.groups.filter(name='teacher').exists())
 def teacherform(request):
     context={}
     if request.method == 'POST': # this checks for button click
@@ -116,8 +121,9 @@ def register(request):
             return redirect('')
     return render(request, "registration/registration.html", {'form':form})
 
+@login_required
 def profile(request):
-    
+
     mystudentaccounts = Student.objects.filter(lastname=request.user.last_name, firstname=request.user.first_name)
     myteacheraccounts = Teacher.objects.filter(lastname=request.user.last_name, firstname=request.user.first_name)
 
@@ -125,6 +131,7 @@ def profile(request):
         'mystudentaccounts':mystudentaccounts,
         'myteacheraccounts':myteacheraccounts,
     }
+
 
     return render(request, 'profile.html', context)
 
