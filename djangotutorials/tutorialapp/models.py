@@ -13,7 +13,7 @@ class Student(models.Model):
     lastname = models.CharField(max_length=200, null=True,verbose_name="Last name ")
     middlename = models.CharField(max_length=200, null=True,verbose_name="Middle name ")
     grade = models.CharField(max_length=200, null=True, choices=Grade,verbose_name="Grade ")
-
+    profile_pic= models.ImageField(null=True,blank=True)
     def __str__(self) -> str:
         return ""+ str(self.lastname) + ", " + str(self.firstname) + ": " + str(self.grade)
 

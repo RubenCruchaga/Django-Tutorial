@@ -98,17 +98,7 @@ def teacherform(request):
 def login(request):
     context={}
     return render(request, 'login.html', context)
-''''
-def register(request):
-    form = UserCreationForm()
-    if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
 
-    context={'form': form}
-    return render(request, 'register.html', context)
-'''
 def register(request):
     form = RegistrationForm()
     #if they are already on this page and submit the data

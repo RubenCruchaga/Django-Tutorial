@@ -131,3 +131,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = "/"  #go to the main page (home)
 
 LOGOUT_REDIRECT_URL = "login"  #send user after loging out the login page
+
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
