@@ -23,6 +23,7 @@ class Teacher(models.Model):
     lastname = models.CharField(max_length=200, null=True, verbose_name="Last name ")
     classtype = models.CharField(max_length=200, null=True, verbose_name="Class type ")
     roomnumber = models.CharField(max_length=200, null=True, verbose_name="Room Number ")
+    profile_pic= models.ImageField(null=True,blank=True)
 
     def __str__(self) -> str:
         return ""+ str(self.lastname) + ", " + str(self.firstname) + " is in room number: " + str(self.roomnumber)

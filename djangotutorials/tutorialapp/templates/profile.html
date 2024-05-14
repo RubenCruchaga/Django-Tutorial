@@ -8,7 +8,10 @@
 <div class="card" style="width: 98%; margin-left:1%;">
     <div class="card-body">
       <h1 class="card-title">Profile</h1>
-      {%for i in mystudentaccounts%}
+      {% for i in mystudentaccounts %}
+        <img src="{{i.profile_pic.url}}">
+    {% endfor %}
+    {% for i in myteacheraccounts %}
         <img src="{{i.profile_pic.url}}">
     {% endfor %}
       <p class="card-text">
